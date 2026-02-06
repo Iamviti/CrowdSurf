@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrowdSurf - Predicción de Crowd en Surf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">🌊</span>
+                <span class="logo-text">CrowdSurf</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Funciones</a>
+                <a href="#demo">Demo</a>
+                <a href="/swagger-ui.html" target="_blank">API Docs</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <h1>Surfea <span class="gradient-text">Sin Multitudes</span></h1>
+            <p class="hero-subtitle">
+                Predicción inteligente de crowd en más de 50 spots de surf.
+                Descubre cuándo y dónde surfear con menos gente.
+            </p>
+            <a href="#demo" class="cta-button">
+                Ver Predicciones <span class="arrow">→</span>
+            </a>
+        </div>
+
+        <div class="hero-visual">
+            <div class="wave-animation"></div>
+        </div>
+    </header>
+
+    <!-- FEATURES -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>¿Por qué CrowdSurf?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Predicción 72h</h3>
+                    <p>Forecast horario con nivel de crowd para planificar tu sesión perfecta</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌊</div>
+                    <h3>Condiciones Reales</h3>
+                    <p>Integración con datos de swell, viento, marea y clima en tiempo real</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Precisión Local</h3>
+                    <p>Algoritmo calibrado por spot considerando popularidad y accesibilidad</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>API Comercial</h3>
+                    <p>Integra predicciones de crowd en tu app de surf con nuestra API REST</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEMO SECTION -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2>Consulta Predicciones</h2>
+
+            <div class="spot-selector">
+                <select id="spotSelect">
+                    <option value="">Cargando spots...</option>
+                </select>
+                <button id="searchBtn" class="search-btn">
+                    🔍 Ver Predicción
+                </button>
+            </div>
+
+            <!-- PREDICTION CARD -->
+            <div id="predictionCard" class="prediction-card hidden">
+                <div class="prediction-header">
+                    <div class="spot-info">
+                        <h3 id="spotName">-</h3>
+                        <span id="spotLocation" class="spot-location">-</span>
+                    </div>
+                    <div id="crowdBadge" class="crowd-badge">
+                        <span id="crowdLevel">-</span>
+                    </div>
+                </div>
+
+                <div class="prediction-body">
+                    <div class="current-conditions">
+                        <div class="condition-item">
+                            <span class="condition-label">Nivel de Crowd</span>
+                            <span id="crowdValue" class="condition-value">-</span>
+                        </div>
+                        <div class="condition-item">
+                            <span class="condition-label">Categoría</span>
+                            <span id="crowdCategory" class="condition-value">-</span>
+                        </div>
+                        <div class="condition-item">
+                            <span class="condition-label">Confianza</span>
+                            <span id="confidence" class="condition-value">-</span>
+                        </div>
+                        <div class="condition-item">
+                            <span class="condition-label">Marea</span>
+                            <span id="tideState" class="condition-value">-</span>
+                        </div>
+                    </div>
+
+                    <div class="factors">
+                        <h4>🏄 Factores Principales</h4>
+                        <p id="primaryFactors">-</p>
+                    </div>
+                </div>
+
+                <!-- FORECAST CHART -->
+                <div class="forecast-section">
+                    <h4>📈 Forecast Próximas 24h</h4>
+                    <div id="forecastChart" class="forecast-chart"></div>
+                </div>
+            </div>
+
+            <!-- EMPTY STATE -->
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">🏖️</div>
+                <p>Selecciona un spot para ver las predicciones de crowd</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🌊</span> CrowdSurf API
+                </div>
+                <div class="footer-links">
+                    <a href="/api-docs" target="_blank">OpenAPI</a>
+                    <a href="/swagger-ui.html" target="_blank">Swagger UI</a>
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                </div>
+            </div>
+            <p class="copyright">© 2026 CrowdSurf - Surf Crowd Intelligence</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

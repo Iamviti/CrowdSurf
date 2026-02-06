@@ -1,0 +1,48 @@
+# ============================================================================
+# CrowdSurf API - .gitignore
+# ============================================================================
+
+# Build output
+target/
+build/
+*.class
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+!.mvn/wrapper/maven-wrapper.jar
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Sensitive files - NEVER commit
+application-prod.properties
+application-local.properties
+*.pem
+*.key
+secrets/
+
+# Docker volumes
+data/
+
+# Node (if frontend)
+node_modules/
+
+# Temp
+tmp/
+temp/
