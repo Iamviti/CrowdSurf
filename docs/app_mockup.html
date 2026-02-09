@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=400, initial-scale=1.0">
+    <title>CrowdSurf App - Mockup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #1a1a2e;
+            --bg-card: #252542;
+            --text-white: #ffffff;
+            --text-gray: #9ca3af;
+            --accent: #3b82f6;
+            --green: #10b981;
+            --yellow: #f59e0b;
+            --red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #0f0f1a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        h1.title {
+            width: 100%;
+            text-align: center;
+            color: var(--text-white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .label {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+
+        .phone {
+            width: 360px;
+            min-height: 780px;
+            background: var(--bg-dark);
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #333;
+        }
+
+        .statusbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 20px;
+            color: var(--text-white);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .notch {
+            width: 100px;
+            height: 24px;
+            background: #000;
+            border-radius: 16px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 16px 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-white);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            font-size: 20px;
+        }
+
+        .location {
+            background: var(--bg-card);
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: var(--text-gray);
+            font-size: 13px;
+        }
+
+        /* Main Content */
+        .main {
+            padding: 0 16px 80px;
+        }
+
+        /* Crowd Display */
+        .crowd-display {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .spot-name {
+            color: var(--text-white);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .spot-location {
+            color: var(--text-gray);
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        .crowd-value {
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--text-white);
+            line-height: 1;
+        }
+
+        .crowd-label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 4px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .crowd-label.medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--yellow);
+        }
+
+        .crowd-label.high {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--red);
+        }
+
+        .crowd-label.low {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--green);
+        }
+
+        .confidence {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            color: var(--text-gray);
+            font-size: 12px;
+        }
+
+        .confidence-bar {
+            width: 100px;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            width: 75%;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Data Grid */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .data-item {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .data-icon {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .data-value {
+            color: var(--text-white);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .data-label {
+            color: var(--text-gray);
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        /* Chart */
+        .chart-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .chart-title {
+            color: var(--text-white);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .chart-tabs {
+            display: flex;
+            gap: 4px;
+        }
+
+        .chart-tab {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: var(--text-gray);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .chart-tab.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .chart-area {
+            height: 80px;
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.3) 0%, transparent 100%);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .chart-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 80' preserveAspectRatio='none'%3E%3Cpath d='M0,50 C40,40 80,60 120,35 S200,25 240,40 S280,50 300,45' stroke='%233b82f6' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .chart-times {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            color: var(--text-gray);
+            font-size: 10px;
+        }
+
+        /* Bottom Nav */
+        .nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 16px 24px;
+            background: var(--bg-dark);
+            border-top: 1px solid #333;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--text-gray);
+            font-size: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-item.active {
+            color: var(--accent);
+        }
+
+        .nav-icon {
+            font-size: 20px;
+        }
+
+        /* REPORT */
+        .report-main {
+            padding: 0 16px;
+            text-align: center;
+        }
+
+        .dial {
+            width: 200px;
+            height: 200px;
+            margin: 32px auto;
+            border-radius: 50%;
+            background: conic-gradient(var(--green) 0deg 72deg,
+                    var(--yellow) 72deg 180deg,
+                    var(--red) 180deg 360deg);
+            opacity: 0.3;
+            position: relative;
+        }
+
+        .dial-inner {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background: var(--bg-dark);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dial-value {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .dial-label {
+            font-size: 14px;
+            color: var(--red);
+            font-weight: 500;
+        }
+
+        .dial-scale {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            margin-bottom: 32px;
+            color: var(--text-gray);
+            font-size: 12px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .pts-badge {
+            position: absolute;
+            top: -8px;
+            right: 16px;
+            background: var(--green);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* MAP */
+        .map-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, #1a1a2e 0%, #252542 100%);
+        }
+
+        .search {
+            position: absolute;
+            top: 56px;
+            left: 16px;
+            right: 16px;
+            z-index: 10;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: var(--text-white);
+            font-size: 14px;
+        }
+
+        .search input::placeholder {
+            color: var(--text-gray);
+        }
+
+        .markers {
+            position: absolute;
+            top: 120px;
+            left: 0;
+            right: 0;
+            bottom: 180px;
+        }
+
+        .marker {
+            position: absolute;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .marker.g {
+            background: var(--green);
+            top: 30%;
+            left: 20%;
+        }
+
+        .marker.y {
+            background: var(--yellow);
+            top: 20%;
+            left: 50%;
+        }
+
+        .marker.r {
+            background: var(--red);
+            top: 40%;
+            left: 70%;
+        }
+
+        .popup {
+            position: absolute;
+            bottom: 80px;
+            left: 16px;
+            right: 16px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 16px;
+            z-index: 10;
+        }
+
+        .popup-name {
+            color: var(--text-white);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .popup-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .popup-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--red);
+        }
+
+        .popup-info {
+            color: var(--text-gray);
+            font-size: 12px;
+        }
+
+        /* PROFILE */
+        .profile-main {
+            padding: 0 16px 80px;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+
+        .profile-name {
+            text-align: center;
+            color: var(--text-white);
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .profile-level {
+            text-align: center;
+            color: var(--yellow);
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .points-box {
+            background: var(--accent);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .points-num {
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .points-txt {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .progress-row {
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+            margin-top: 12px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            margin-top: 6px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 65%;
+            background: white;
+            border-radius: 3px;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .stat {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .stat-val {
+            color: var(--text-white);
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .stat-lbl {
+            color: var(--text-gray);
+            font-size: 10px;
+            margin-top: 2px;
+        }
+
+        .section-title {
+            color: var(--text-white);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .fav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+        }
+
+        .fav-icon {
+            font-size: 20px;
+        }
+
+        .fav-info {
+            flex: 1;
+        }
+
+        .fav-name {
+            color: var(--text-white);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .fav-sub {
+            color: var(--text-gray);
+            font-size: 11px;
+        }
+
+        .fav-crowd {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">CrowdSurf Mockup</h1>
+
+    <!-- HOME -->
+    <div>
+        <p class="label">Home</p>
+        <div class="phone">
+            <div class="statusbar">
+                <span>9:41</span>
+                <div class="notch"></div>
+                <span>📶 🔋</span>
+            </div>
+
+            <div class="header">
+                <div class="logo"><span>🌊</span> CrowdSurf</div>
+                <div class="location">📍 Mundaka</div>
+            </div>
+
+            <div class="main">
+                <div class="crowd-display">
+                    <div class="spot-name">Mundaka</div>
+                    <div class="spot-location">País Vasco, España</div>
+                    <div class="crowd-value">6</div>
+                    <div class="crowd-label medium">MEDIO</div>
+                    <div class="confidence">
+                        Confianza
+                        <div class="confidence-bar">
+                            <div class="confidence-fill"></div>
+                        </div>
+                        75%
+                    </div>
+                </div>
+
+                <div class="data-grid">
+                    <div class="data-item">
+                        <div class="data-icon">🌊</div>
+                        <div class="data-value">1.8m</div>
+                        <div class="data-label">Oleaje</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-icon">💨</div>
+                        <div class="data-value">12km/h</div>
+                        <div class="data-label">Viento</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-icon">🌡</div>
+                        <div class="data-value">18°C</div>
+                        <div class="data-label">Temp</div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <span class="chart-title">Predicción</span>
+                        <div class="chart-tabs">
+                            <button class="chart-tab active">24h</button>
+                            <button class="chart-tab">48h</button>
+                        </div>
+                    </div>
+                    <div class="chart-area">
+                        <div class="chart-line"></div>
+                    </div>
+                    <div class="chart-times">
+                        <span>Ahora</span>
+                        <span>12:00</span>
+                        <span>18:00</span>
+                        <span>00:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav">
+                <button class="nav-item active"><span class="nav-icon">🏠</span>Home</button>
+                <button class="nav-item"><span class="nav-icon">🗺️</span>Mapa</button>
+                <button class="nav-item"><span class="nav-icon">📢</span>Reportar</button>
+                <button class="nav-item"><span class="nav-icon">👤</span>Perfil</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- REPORT -->
+    <div>
+        <p class="label">Reportar</p>
+        <div class="phone">
+            <div class="statusbar">
+                <span>9:41</span>
+                <div class="notch"></div>
+                <span>📶 🔋</span>
+            </div>
+
+            <div class="header">
+                <div class="logo">← Reportar Crowd</div>
+            </div>
+
+            <div class="report-main">
+                <div class="dial">
+                    <div class="dial-inner">
+                        <div class="dial-value">7</div>
+                        <div class="dial-label">ALTO</div>
+                    </div>
+                </div>
+
+                <div class="dial-scale">
+                    <span>0</span>
+                    <span>2</span>
+                    <span>4</span>
+                    <span>6</span>
+                    <span>8</span>
+                    <span>10</span>
+                </div>
+
+                <button class="submit-btn">
+                    Enviar Reporte
+                    <span class="pts-badge">+10 pts</span>
+                </button>
+            </div>
+
+            <div class="nav">
+                <button class="nav-item"><span class="nav-icon">🏠</span>Home</button>
+                <button class="nav-item"><span class="nav-icon">🗺️</span>Mapa</button>
+                <button class="nav-item active"><span class="nav-icon">📢</span>Reportar</button>
+                <button class="nav-item"><span class="nav-icon">👤</span>Perfil</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAP -->
+    <div>
+        <p class="label">Mapa</p>
+        <div class="phone">
+            <div class="map-bg">
+                <div class="statusbar" style="position: relative; z-index: 20;">
+                    <span>9:41</span>
+                    <div class="notch"></div>
+                    <span>📶 🔋</span>
+                </div>
+
+                <div class="search">
+                    <input type="text" placeholder="🔍 Buscar spots...">
+                </div>
+
+                <div class="markers">
+                    <div class="marker g">3</div>
+                    <div class="marker y">5</div>
+                    <div class="marker r">8</div>
+                </div>
+
+                <div class="popup">
+                    <div class="popup-name">Hossegor</div>
+                    <div class="popup-row">
+                        <div class="popup-value">8</div>
+                        <div>
+                            <div class="popup-info">ALTO • Subiendo</div>
+                            <div class="popup-info">🌊 1.8m • 💨 Offshore</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav">
+                    <button class="nav-item"><span class="nav-icon">🏠</span>Home</button>
+                    <button class="nav-item active"><span class="nav-icon">🗺️</span>Mapa</button>
+                    <button class="nav-item"><span class="nav-icon">📢</span>Reportar</button>
+                    <button class="nav-item"><span class="nav-icon">👤</span>Perfil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div>
+        <p class="label">Perfil</p>
+        <div class="phone">
+            <div class="statusbar">
+                <span>9:41</span>
+                <div class="notch"></div>
+                <span>📶 🔋</span>
+            </div>
+
+            <div class="header">
+                <div class="logo">← Mi Perfil</div>
+            </div>
+
+            <div class="profile-main">
+                <div class="avatar">🏄</div>
+                <div class="profile-name">Carlos Martínez</div>
+                <div class="profile-level">🏅 LOCAL</div>
+
+                <div class="points-box">
+                    <div class="points-num">1,320</div>
+                    <div class="points-txt">Puntos totales</div>
+                    <div class="progress-row">
+                        <span>Local (500)</span>
+                        <span>Pro (2000)</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat">
+                        <div class="stat-val">47</div>
+                        <div class="stat-lbl">Reportes</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-val">12</div>
+                        <div class="stat-lbl">Spots</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-val">85%</div>
+                        <div class="stat-lbl">Precisión</div>
+                    </div>
+                </div>
+
+                <div class="section-title">⭐ Spots Favoritos</div>
+                <div class="fav-item">
+                    <span class="fav-icon">📍</span>
+                    <div class="fav-info">
+                        <div class="fav-name">Mundaka</div>
+                        <div class="fav-sub">23 reportes</div>
+                    </div>
+                    <div class="fav-crowd" style="background:var(--yellow)">6</div>
+                </div>
+                <div class="fav-item">
+                    <span class="fav-icon">📍</span>
+                    <div class="fav-info">
+                        <div class="fav-name">Sopelana</div>
+                        <div class="fav-sub">18 reportes</div>
+                    </div>
+                    <div class="fav-crowd" style="background:var(--green)">3</div>
+                </div>
+            </div>
+
+            <div class="nav">
+                <button class="nav-item"><span class="nav-icon">🏠</span>Home</button>
+                <button class="nav-item"><span class="nav-icon">🗺️</span>Mapa</button>
+                <button class="nav-item"><span class="nav-icon">📢</span>Reportar</button>
+                <button class="nav-item active"><span class="nav-icon">👤</span>Perfil</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
